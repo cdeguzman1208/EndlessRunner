@@ -3,10 +3,6 @@ class Pause extends Phaser.Scene {
         super('pauseScene');
     }
 
-    preload() {
-
-    }
-
     create() {
 
     }

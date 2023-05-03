@@ -3,15 +3,11 @@ class LevelSelect extends Phaser.Scene {
         super('levelSelectScene');
     }
 
-    preload() {
-
-    }
-
     create() {
 
     }
 
     update() {
-
+        
     }
 }
