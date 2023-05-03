@@ -30,7 +30,7 @@ let config  = {
             }
         }
     },
-    scene: [ Loading, Menu, Levels, Play, Pause, Credits ]
+    scene: [ Loading, Menu, LevelSelect, Play, Pause, Credits ]
 }
 
 let game = new Phaser.Game(config);
