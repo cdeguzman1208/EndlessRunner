@@ -16,7 +16,7 @@ class Menu extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        this.add.text(game.config.width/2, game.config.height/2, 'ENDLESS DANCER', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2, 'ENDLESS RUNNER', menuConfig).setOrigin(0.5);
         
         // set up scene switcher
         this.input.keyboard.on('keydown', (event) => {

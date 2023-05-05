@@ -28,7 +28,6 @@ class Play extends Phaser.Scene {
         this.dancer.setMaxVelocity(0, 600);
         this.dancer.setDragY(200);
         this.dancer.setDepth(1);             // ensures that dancer z-depth remains above dancer paddles
-        this.dancer.destroyed = false;       // custom property to track dancer life
         this.dancer.setBlendMode('SCREEN');  // set a webgl blend mode
         
         // set up the notes
@@ -69,7 +68,7 @@ class Play extends Phaser.Scene {
         this.noteGroup.add(note);
     }
 
-    update() {
+    update() {        
         // make sure dancer is still alive
         if(!this.dancer.destroyed) {
             // check for player input
@@ -82,11 +81,12 @@ class Play extends Phaser.Scene {
             } else if(cursors.down.isDown) {
                 this.dancer.body.y = 400;
             }
-            this.physics.world.collide(this.dancer, this.noteGroup, this.dancerCollision);
+            // check for collisions
+            this.physics.world.collide(this.dancer, this.noteGroup, this.dancerCollision, null, this);
         }
     }
 
     dancerCollision() {
-        
+
     }
 }
