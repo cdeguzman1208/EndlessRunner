@@ -9,17 +9,11 @@ Tilt:
 // tame the javashrek
 'use strict';
 
-// global variables
-let cursors;
-let currentScene = 0;
-const SCALE = 0.5;
-const tileSize = 35;
-
 // main game object
 let config  = {
     type: Phaser.CANVAS,
-    width: 640,
-    height: 480,
+    width: 960,
+    height: 640,
     physics: {
         default: 'arcade',
         arcade: {
@@ -34,3 +28,9 @@ let config  = {
 }
 
 let game = new Phaser.Game(config);
+
+// global variables
+let centerX = game.config.width/2;
+let centerY = game.config.height/2;
+let w = game.config.width;
+let h = game.config.height;
