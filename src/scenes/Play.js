@@ -22,19 +22,16 @@ class Play extends Phaser.Scene {
         this.noteSpeedMax = -1000;
 
         // set up the dancer
-        this.dancer = this.physics.add.sprite(120, game.config.height/2, 'paddle').setScale(SCALE);
+        this.dancer = this.physics.add.sprite(120, 132, 'paddle').setScale(SCALE);
         this.dancer.setCollideWorldBounds(true);
         this.dancer.setImmovable();
         this.dancer.setMaxVelocity(0, 600);
         this.dancer.setDragY(200);
         this.dancer.setDepth(1);             // ensures that dancer z-depth remains above dancer paddles
         this.dancer.destroyed = false;       // custom property to track dancer life
-        this.dancer.setBlendMode('SCREEN');  // set a WebGL blend mode
+        this.dancer.setBlendMode('SCREEN');  // set a webgl blend mode
         
         // set up the notes
-        //this.note = this.physics.add.sprite(220, game.config.height/2, 'cross').setScale(SCALE*5);
-
-        // set up note group
         this.noteGroup = this.add.group({
             runChildUpdate: true    // make sure update runs on group children
         });
@@ -46,9 +43,6 @@ class Play extends Phaser.Scene {
 
         // set up phaser-provided cursor key input
         cursors = this.input.keyboard.createCursorKeys();
-
-        // add physics collider
-        this.physics.add.collider(this.dancer, this.note);
 
         // set up scene switcher
         this.input.keyboard.on('keydown', (event) => {
@@ -88,6 +82,11 @@ class Play extends Phaser.Scene {
             } else if(cursors.down.isDown) {
                 this.dancer.body.y = 400;
             }
+            this.physics.world.collide(this.dancer, this.noteGroup, this.dancerCollision);
         }
+    }
+
+    dancerCollision() {
+        
     }
 }

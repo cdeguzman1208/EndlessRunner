@@ -40,3 +40,4 @@ let centerY = game.config.height/2;
 let w = game.config.width;
 let h = game.config.height;
 let dancer = null;
+let highscore = 0;
