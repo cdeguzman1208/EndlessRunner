@@ -18,7 +18,7 @@ class Menu extends Phaser.Scene {
 
         // show menu text
         this.add.text(game.config.width/2, game.config.height/2, 'ENDLESS DANCER', menuConfig).setOrigin(0.5);
-        }
+    }
 
     update() {
 
