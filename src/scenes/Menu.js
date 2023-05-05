@@ -4,6 +4,7 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
+        // display meny text
         let menuConfig = {
             fontFamily: 'Comic Sans MS',
             fontSize: '40px',
@@ -15,9 +16,24 @@ class Menu extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-
-        // show menu text
         this.add.text(game.config.width/2, game.config.height/2, 'ENDLESS DANCER', menuConfig).setOrigin(0.5);
+        
+        // set up scene switcher
+        this.input.keyboard.on('keydown', (event) => {
+            switch(event.key) {
+                case 'Escape':
+                    this.scene.start('menuScene');
+                    break;
+                case ' ':
+                    this.scene.start('playScene');
+                    break;
+                case 'Backspace':
+                    this.scene.start('creditsScene');
+                    break;
+                default:
+                    break;
+            }
+        });
     }
 
     update() {
