@@ -23,12 +23,6 @@ class Play extends Phaser.Scene {
 
         // set up the dancer
         this.dancer = this.physics.add.sprite(120, 132, 'paddle').setScale(SCALE);
-        this.dancer.setCollideWorldBounds(true);
-        this.dancer.setImmovable();
-        this.dancer.setMaxVelocity(0, 600);
-        this.dancer.setDragY(200);
-        this.dancer.setDepth(1);             // ensures that dancer z-depth remains above dancer paddles
-        this.dancer.setBlendMode('SCREEN');  // set a webgl blend mode
         
         // set up the notes
         this.noteGroup = this.add.group({
