@@ -31,9 +31,12 @@ let game = new Phaser.Game(config);
 
 // global variables
 const SCALE = 0.5;
+const dancerWidth = 16;
+const dancerHeight = 128;
 const dancerVelocity = 150;
 let cursors;
 let centerX = game.config.width/2;
 let centerY = game.config.height/2;
 let w = game.config.width;
 let h = game.config.height;
+let dancer = null;
