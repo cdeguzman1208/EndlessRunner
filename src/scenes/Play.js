@@ -18,11 +18,10 @@ class Play extends Phaser.Scene {
         this.add.text(game.config.width/2, game.config.height/2, 'PLAY', playConfig).setOrigin(0.5);
 
         // reset parameters
-        this.noteSpeed = -450;
-        this.noteSpeedMax = -1000;
+        this.noteSpeed = 300;
 
         // set up the dancer
-        this.dancer = this.physics.add.sprite(120, 132, 'paddle').setScale(SCALE);
+        this.dancer = this.physics.add.sprite(480, 500, 'paddle').setScale(SCALE);
         
         // set up the notes
         this.noteGroup = this.add.group({
@@ -66,21 +65,27 @@ class Play extends Phaser.Scene {
         // make sure dancer is still alive
         if(!this.dancer.destroyed) {
             // check for player input
-            if(cursors.up.isDown) {
-                this.dancer.body.y = 100;
-            } else if(cursors.left.isDown) {
-                this.dancer.body.y = 200;
-            } else if(cursors.right.isDown) {
-                this.dancer.body.y = 300;
+            if(cursors.left.isDown) {
+                this.dancer.body.x = 320;
+                this.dancer.body.y = 500;
+            } else if(cursors.up.isDown) {
+                this.dancer.body.x = 420;
+                this.dancer.body.y = 500;
             } else if(cursors.down.isDown) {
-                this.dancer.body.y = 400;
+                this.dancer.body.x = 520;
+                this.dancer.body.y = 500;
+            } else if(cursors.right.isDown) {
+                this.dancer.body.x = 620;
+                this.dancer.body.y = 500;
             }
             // check for collisions
             this.physics.world.collide(this.dancer, this.noteGroup, this.dancerCollision, null, this);
         }
     }
 
-    dancerCollision() {
-
+    dancerCollision(music) {
+        this.dancer.setVelocity(0);
+        this.dancer.body.y = 500;
+        console.log("boop");
     }
 }
