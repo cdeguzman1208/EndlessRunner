@@ -16,10 +16,10 @@ class Menu extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        this.add.text(game.config.width/2, game.config.height/2, 'ENDLESS RUNNER', menuConfig).setOrigin(0.5);
+        this.add.text(w/2, h/2, 'ENDLESS DANCER', menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '20px';
         menuConfig.color = 'white';
-        this.add.text(game.config.width/2, game.config.height/2 + 75, 'press space to play, backpace for credits, esc for main menu', menuConfig).setOrigin(0.5);
+        this.add.text(w/2, h/2 + 100, 'Collect all the Music Notes!\n\nPress Arrow Keys to dance, Spacebar to play,\nBackspace for credits, & Escape for main menu', menuConfig).setOrigin(0.5);
         
         // set up scene switcher
         this.input.keyboard.on('keydown', (event) => {

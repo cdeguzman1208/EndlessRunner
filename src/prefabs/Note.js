@@ -13,19 +13,20 @@ class Note extends Phaser.Physics.Arcade.Sprite {
         this.setImmovable();                    
         this.tint = Math.random() * 0xFFFFFF;   // randomize tint
         this.newNote = true;                 // custom property to control barrier spawning
+        this.destroyed = false;
      }
 
     update() {
         // add new note when existing note hits center Y
-        if(this.newNote && this.y > centerY) {
+        if(gameOver == false && this.newNote && this.y > centerY) {
             // (recursively) call parent scene method from this context
             this.parentScene.addNote(this.parent, this.velocity);
             this.newNote = false;
         }
 
-        // destroy note if it reaches the left edge of the screen
-        if(this.y < -this.height) {
-            this.destroy();
+        // trigger game over if it reaches the bottom edge of the screen
+        if(this.y > h) {
+            gameOver = true;
         }
     }
 }
