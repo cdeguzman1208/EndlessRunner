@@ -15,8 +15,4 @@ class Dancer extends Phaser.Physics.Arcade.Sprite {
         this.dancer.missed = false;
 
     }
-
-    update() {
-
-    }
 }
