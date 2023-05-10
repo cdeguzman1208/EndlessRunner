@@ -4,6 +4,7 @@ class Play extends Phaser.Scene {
     }
 
     create() {
+
         this.playConfig = {
             fontFamily: 'Comic Sans MS',
             fontSize: '40px',
@@ -40,6 +41,7 @@ class Play extends Phaser.Scene {
         this.input.keyboard.on('keydown', (event) => {
             switch(event.key) {
                 case 'Escape':
+                    gameOver = false;
                     this.scene.start('menuScene');
                     break;
                 case ' ':
@@ -47,6 +49,7 @@ class Play extends Phaser.Scene {
                     this.scene.restart();
                     break;
                 case 'Backspace':
+                    gameOver = false;
                     this.scene.start('creditsScene');
                     break;
                 default:
