@@ -8,6 +8,8 @@ class Play extends Phaser.Scene {
         this.noteSpeed = 300;
         score = 0;
         gameOver = false;
+        
+        this.logTime = true;
 
         // set up config for game over text
         this.playConfig = {
@@ -81,7 +83,7 @@ class Play extends Phaser.Scene {
         this.noteGroup.add(this.note);
     }
 
-    update() {        
+    update() {
         // while not game over, continue playing
         if(gameOver == false) {
             // check for player input
@@ -101,6 +103,11 @@ class Play extends Phaser.Scene {
 
             // check for collisions
             this.physics.world.collide(this.dancer, this.noteGroup, this.dancerCollision, null, this);
+
+            // increase speed/difficulty as game progresses
+            if(Math.floor(this.time.now) % 50 == 0) {
+                this.noteSpeed++;
+            }
         }
         // display game over text
         else if (gameOver == true) {
