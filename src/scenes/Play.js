@@ -136,7 +136,6 @@ class Play extends Phaser.Scene {
                 this.noteSpeed++;
                 this.musicSpeed += 0.0005;
                 this.music.setRate(this.musicSpeed);
-                console.log(this.musicSpeed);
             }
         }
         // display game over text
