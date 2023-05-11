@@ -59,6 +59,7 @@ let centerY = game.config.height/2;
 let w = game.config.width;
 let h = game.config.height;
 let dancer = null;
+let score = 0
 let highscore = 0;
 let gameOver = false;
 let keyA, keyS, keyD, keyF;

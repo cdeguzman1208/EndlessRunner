@@ -4,7 +4,12 @@ class Play extends Phaser.Scene {
     }
 
     create() {
+        // reset variables
+        this.noteSpeed = 300;
+        score = 0;
+        gameOver = false;
 
+        // set up config for game over text
         this.playConfig = {
             fontFamily: 'Comic Sans MS',
             fontSize: '40px',
@@ -16,12 +21,22 @@ class Play extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        this.playText = this.add.text(game.config.width/2, game.config.height/2, ' ', this.playConfig).setOrigin(0.5);
+        this.playText = this.add.text(w/2, h/2, ' ', this.playConfig).setOrigin(0.5);
 
-        // reset parameters
-        this.noteSpeed = 300;
-        highscore = 0;
-        gameOver = false;
+        // set up config for score & highscore text
+        this.scoreConfig = {
+            fontFamily: 'Comic Sans MS',
+            fontSize: '20px',
+            color: 'white',
+            align: 'center',
+            padding: {
+                top: 8,
+                bottom: 8,
+            },
+            fixedWidth: 0
+        }
+        this.scoreText = this.add.text(75, 200, score, this.scoreConfig).setOrigin(0.5);
+        this.highScoreText = this.add.text(75, 300, highscore, this.scoreConfig).setOrigin(0.5);
 
         // set up keyboard input
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -87,6 +102,7 @@ class Play extends Phaser.Scene {
             // check for collisions
             this.physics.world.collide(this.dancer, this.noteGroup, this.dancerCollision, null, this);
         }
+        // display game over text
         else if (gameOver == true) {
             this.noteGroup.clear(true, true);
             this.playText.setText('GAMEOVER');
@@ -94,10 +110,17 @@ class Play extends Phaser.Scene {
     }
 
     dancerCollision() {
+        // on collision, destroy note
         this.noteGroup.remove(this.noteGroup.getFirstAlive(true), true, true);
         this.dancer.setVelocity(0);
         this.dancer.body.y = 500;
-        highscore++;
-        console.log(highscore)
+
+        // add to score / update highscore
+        score++;
+        if (score > highscore) {
+            highscore = score;
+        }
+        this.scoreText.setText(score);
+        this.highScoreText.setText(highscore);
     }
 }
