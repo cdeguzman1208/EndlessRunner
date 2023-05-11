@@ -5,13 +5,13 @@ class Credits extends Phaser.Scene {
 
     create() {
         // add bgm
-        this.endingMusic = this.sound.add('street', { loop: true, volume: 0.25 });
-        this.endingMusic.play();
+        this.creditsMusic = this.sound.add('street', { loop: true, volume: 0.25 });
+        this.creditsMusic.play();
 
         let creditsConfig = {
             fontFamily: 'Comic Sans MS',
-            fontSize: '40px',
-            color: 'cyan',
+            fontSize: '30px',
+            color: 'white',
             align: 'center',
             padding: {
                 top: 8,
@@ -19,21 +19,23 @@ class Credits extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        this.add.text(w/2, h/2, 'CREDITS', creditsConfig).setOrigin(0.5);
+        this.creditsText1 = this.add.text(w/2, h, 'CREDITS', creditsConfig).setOrigin(0.5);
+        creditsConfig.fontSize = '20px';
+        this.creditsText2 = this.add.text(w/2, h + 250, 'Design & Development:\nCromwell De Guzman\n\nArt:\nCromwell De Guzmann\n\nMusic:\nThe Podcast Intro - Music_Unlimited\nElectro Summer Positive Party - Alex Kizenkov\nBlast - AlexiAction\nDisco Groove - QubeSounds\nAction Techno Beat - ComaStudio\nElectro Pop - AlexiAction\nStreet Food - FASSounds\n\nSFX:\nTBA', creditsConfig).setOrigin(0.5);
 
         // set up scene switcher
         this.input.keyboard.on('keydown', (event) => {
             switch(event.key) {
                 case 'Escape':
-                    this.endingMusic.stop();
+                    this.creditsMusic.stop();
                     this.scene.start('menuScene');
                     break;
                 case ' ':
-                    this.endingMusic.stop();
+                    this.creditsMusic.stop();
                     this.scene.start('playScene');
                     break;
                 case 'Backspace':
-                    this.endingMusic.stop();
+                    this.creditsMusic.stop();
                     this.scene.start('creditsScene');
                     break;
                 default:
@@ -43,12 +45,13 @@ class Credits extends Phaser.Scene {
     }
 
     update() {
-        // The Podcast Intro - Music_Unlimited
-        // Electro Summer Positive Party - Alex Kizenkov
-        // Blast - AlexiAction
-        // Disco Groove - QubeSounds
-        // Action Techno Beat - ComaStudio
-        // Electro Pop - AlexiAction
-        // Street Food - FASSounds
+        if(this.creditsText2.y > 0 - 250) {
+            this.creditsText1.y--;
+            this.creditsText2.y--;
+        }
+        else {
+            this.creditsText1.y = h;
+            this.creditsText2.y = h + 250;
+        }
     }
 }
