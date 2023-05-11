@@ -2,7 +2,7 @@
 class Note extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, velocity) {
         // call phaser physics sprite constructor
-        super(scene, Phaser.Math.Between(3, 6) * 100 + 20, 0, 'cross');
+        super(scene, Phaser.Math.Between(3, 6) * 100 + 20, 0, 'fragment');
         
         this.parentScene = scene;               // maintain scene context
         

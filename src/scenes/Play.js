@@ -8,8 +8,32 @@ class Play extends Phaser.Scene {
         this.noteSpeed = 300;
         score = 0;
         gameOver = false;
-        
-        this.logTime = true;
+
+        // add bgm
+        this.trackNumber = Math.floor(Math.random() * 5);
+        this.track;
+        switch (this.trackNumber) {
+            case 0:
+                this.track = 'techno'
+                break;
+            case 1:
+                this.track = 'blast'
+                break;
+            case 2:
+                this.track = 'disco'
+                break;
+            case 3:
+                this.track = 'pop'
+                break;
+            case 4:
+                this.track = 'summer'
+                break;
+            default:
+                break;
+        }
+        this.music = this.sound.add(this.track, { loop: true, volume: 0.25 });
+        this.musicSpeed = 1;
+        this.music.play();
 
         // set up config for game over text
         this.playConfig = {
@@ -63,12 +87,15 @@ class Play extends Phaser.Scene {
         this.input.keyboard.on('keydown', (event) => {
             switch(event.key) {
                 case 'Escape':
+                    this.music.stop();
                     this.scene.start('menuScene');
                     break;
                 case ' ':
+                    this.music.stop();
                     this.scene.restart();
                     break;
                 case 'Backspace':
+                    this.music.stop();
                     this.scene.start('creditsScene');
                     break;
                 default:
@@ -104,13 +131,17 @@ class Play extends Phaser.Scene {
             // check for collisions
             this.physics.world.collide(this.dancer, this.noteGroup, this.dancerCollision, null, this);
 
-            // increase speed/difficulty as game progresses
-            if(Math.floor(this.time.now) % 50 == 0) {
+            // increase speed/difficulty as score increases
+            if(score > 0 && score % 10 == 0) {
                 this.noteSpeed++;
+                this.musicSpeed += 0.0005;
+                this.music.setRate(this.musicSpeed);
+                console.log(this.musicSpeed);
             }
         }
         // display game over text
         else if (gameOver == true) {
+            this.music.stop();
             this.noteGroup.clear(true, true);
             this.playText.setText('GAMEOVER');
         }

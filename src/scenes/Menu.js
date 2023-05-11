@@ -4,7 +4,11 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        // display meny text
+        // add bgm
+        this.bgm = this.sound.add('intro', { loop: true, volume: 0.25 });
+        this.bgm.play();
+
+        // display menu text
         let menuConfig = {
             fontFamily: 'Comic Sans MS',
             fontSize: '40px',
@@ -25,12 +29,15 @@ class Menu extends Phaser.Scene {
         this.input.keyboard.on('keydown', (event) => {
             switch(event.key) {
                 case 'Escape':
+                    this.bgm.stop();
                     this.scene.start('menuScene');
                     break;
                 case ' ':
+                    this.bgm.stop();
                     this.scene.start('playScene');
                     break;
                 case 'Backspace':
+                    this.bgm.stop();
                     this.scene.start('creditsScene');
                     break;
                 default:

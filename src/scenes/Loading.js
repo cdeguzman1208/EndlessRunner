@@ -20,9 +20,16 @@ class Loading extends Phaser.Scene {
         this.load.path = './assets/';
 
         // take care of all of our asset loading now
-        this.load.image('paddle', 'paddle.png');
-        this.load.image('fragment', 'fragment.png');
-        this.load.image('cross', 'white_cross.png');
+        this.load.image('paddle', 'art/paddle.png');
+        this.load.image('fragment', 'art/fragment.png');
+        this.load.image('cross', 'art/white_cross.png');
+        this.load.audio('techno', 'music/action-techno-beat-121310.mp3');
+        this.load.audio('blast', 'music/blast-138451.mp3');
+        this.load.audio('disco', 'music/disco-groove-122074.mp3');
+        this.load.audio('pop', 'music/electro-pop-124340.mp3');
+        this.load.audio('summer', 'music/electro-summer-positive-party-141081.mp3');
+        this.load.audio('street', 'music/street-food-112193.mp3');
+        this.load.audio('intro', 'music/the-podcast-intro-111863.mp3');
     }
 
     create() {
