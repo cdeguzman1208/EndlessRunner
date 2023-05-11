@@ -138,8 +138,9 @@ class Play extends Phaser.Scene {
                 this.music.setRate(this.musicSpeed);
             }
         }
+        
         // display game over text
-        else if (gameOver == true) {
+        else if(gameOver == true) {
             this.music.stop();
             this.noteGroup.clear(true, true);
             this.playText.setText('GAMEOVER');
@@ -154,7 +155,7 @@ class Play extends Phaser.Scene {
 
         // add to score / update highscore
         score++;
-        if (score > highscore) {
+        if(score > highscore) {
             highscore = score;
         }
         this.scoreText.setText(score);

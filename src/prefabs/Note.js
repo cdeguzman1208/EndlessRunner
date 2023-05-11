@@ -14,7 +14,7 @@ class Note extends Phaser.Physics.Arcade.Sprite {
         this.tint = Math.random() * 0xFFFFFF;   // randomize tint
         this.newNote = true;                 // custom property to control barrier spawning
         this.destroyed = false;
-     }
+    }
 
     update() {
         // add new note when existing note hits center Y
