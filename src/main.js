@@ -38,7 +38,7 @@ let config  = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            // debug: true,
             gravity: {
                 x: 0,
                 y: 0
@@ -54,7 +54,6 @@ let game = new Phaser.Game(config);
 const SCALE = 0.5;
 const dancerWidth = 16;
 const dancerHeight = 128;
-let cursors;
 let centerX = game.config.width/2;
 let centerY = game.config.height/2;
 let w = game.config.width;
@@ -62,3 +61,4 @@ let h = game.config.height;
 let dancer = null;
 let highscore = 0;
 let gameOver = false;
+let keyA, keyS, keyD, keyF;

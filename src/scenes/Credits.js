@@ -21,15 +21,12 @@ class Credits extends Phaser.Scene {
         this.input.keyboard.on('keydown', (event) => {
             switch(event.key) {
                 case 'Escape':
-                    gameOver = false;
                     this.scene.start('menuScene');
                     break;
                 case ' ':
-                    gameOver = false;
                     this.scene.start('playScene');
                     break;
                 case 'Backspace':
-                    gameOver = false;
                     this.scene.start('creditsScene');
                     break;
                 default:

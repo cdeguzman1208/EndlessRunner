@@ -20,6 +20,14 @@ class Play extends Phaser.Scene {
 
         // reset parameters
         this.noteSpeed = 300;
+        highscore = 0;
+        gameOver = false;
+
+        // set up keyboard input
+        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
 
         // set up the dancer
         this.dancer = this.physics.add.sprite(480, 500, 'paddle').setScale(SCALE);
@@ -34,22 +42,16 @@ class Play extends Phaser.Scene {
             this.addNote(); 
         });
 
-        // set up phaser-provided cursor key input
-        cursors = this.input.keyboard.createCursorKeys();
-
         // set up scene switcher
         this.input.keyboard.on('keydown', (event) => {
             switch(event.key) {
                 case 'Escape':
-                    gameOver = false;
                     this.scene.start('menuScene');
                     break;
                 case ' ':
-                    gameOver = false;
                     this.scene.restart();
                     break;
                 case 'Backspace':
-                    gameOver = false;
                     this.scene.start('creditsScene');
                     break;
                 default:
@@ -68,16 +70,16 @@ class Play extends Phaser.Scene {
         // while not game over, continue playing
         if(gameOver == false) {
             // check for player input
-            if(cursors.left.isDown) {
+            if(Phaser.Input.Keyboard.JustDown(keyA)) {
                 this.dancer.body.x = 320;
                 this.dancer.body.y = 500;
-            } else if(cursors.up.isDown) {
+            } else if(Phaser.Input.Keyboard.JustDown(keyS)) {
                 this.dancer.body.x = 420;
                 this.dancer.body.y = 500;
-            } else if(cursors.down.isDown) {
+            } else if(Phaser.Input.Keyboard.JustDown(keyD)) {
                 this.dancer.body.x = 520;
                 this.dancer.body.y = 500;
-            } else if(cursors.right.isDown) {
+            } else if(Phaser.Input.Keyboard.JustDown(keyF)) {
                 this.dancer.body.x = 620;
                 this.dancer.body.y = 500;
             }
