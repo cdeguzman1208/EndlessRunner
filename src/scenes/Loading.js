@@ -19,10 +19,12 @@ class Loading extends Phaser.Scene {
         // set load path
         this.load.path = './assets/';
 
-        // take care of all of our asset loading now
+        // load art
         this.load.image('paddle', 'art/paddle.png');
         this.load.image('fragment', 'art/fragment.png');
         this.load.image('cross', 'art/white_cross.png');
+
+        // load music
         this.load.audio('techno', 'music/action-techno-beat-121310.mp3');
         this.load.audio('blast', 'music/blast-138451.mp3');
         this.load.audio('disco', 'music/disco-groove-122074.mp3');
@@ -30,6 +32,12 @@ class Loading extends Phaser.Scene {
         this.load.audio('summer', 'music/electro-summer-positive-party-141081.mp3');
         this.load.audio('street', 'music/street-food-112193.mp3');
         this.load.audio('intro', 'music/the-podcast-intro-111863.mp3');
+
+        // load sfx
+        this.load.audio('synth0', 'sfx/synth.wav');
+        this.load.audio('synth1', 'sfx/synth (1).wav');
+        this.load.audio('synth2', 'sfx/synth (2).wav');
+        this.load.audio('laserShoot', 'sfx/laserShoot.wav');
     }
 
     create() {

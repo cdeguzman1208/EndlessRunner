@@ -7,6 +7,7 @@ class Play extends Phaser.Scene {
         // reset variables
         this.noteSpeed = 300;
         score = 0;
+        paused = 0;
         gameOver = false;
 
         // add bgm
@@ -37,7 +38,7 @@ class Play extends Phaser.Scene {
 
         // set up config for game over text
         this.playConfig = {
-            fontFamily: 'Comic Sans MS',
+            fontFamily: 'Verdana',
             fontSize: '40px',
             color: 'cyan',
             align: 'center',
@@ -51,7 +52,7 @@ class Play extends Phaser.Scene {
 
         // set up config for score & highscore text
         this.scoreConfig = {
-            fontFamily: 'Comic Sans MS',
+            fontFamily: 'Verdana',
             fontSize: '20px',
             color: 'white',
             align: 'center',
@@ -61,8 +62,8 @@ class Play extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        this.scoreText = this.add.text(75, 200, score, this.scoreConfig).setOrigin(0.5);
-        this.highScoreText = this.add.text(75, 300, highscore, this.scoreConfig).setOrigin(0.5);
+        this.scoreText = this.add.text(75, 60, 'SCORE:\n' + score, this.scoreConfig).setOrigin(0.5);
+        this.highScoreText = this.add.text(w - 100, 60, 'HIGHSCORE:\n' + highscore, this.scoreConfig).setOrigin(0.5);
 
         // set up keyboard input
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -88,14 +89,17 @@ class Play extends Phaser.Scene {
             switch(event.key) {
                 case 'Escape':
                     this.music.stop();
+                    this.sound.play('laserShoot', { volume: 0.25 });
                     this.scene.start('menuScene');
                     break;
                 case ' ':
                     this.music.stop();
+                    this.sound.play('laserShoot', { volume: 0.25 });
                     this.scene.restart();
                     break;
                 case 'Backspace':
                     this.music.stop();
+                    this.sound.play('laserShoot', { volume: 0.25 });
                     this.scene.start('creditsScene');
                     break;
                 default:
@@ -115,15 +119,19 @@ class Play extends Phaser.Scene {
         if(gameOver == false) {
             // check for player input
             if(Phaser.Input.Keyboard.JustDown(keyA)) {
+                this.sound.play('synth2', { volume: 0.25 });
                 this.dancer.body.x = 320;
                 this.dancer.body.y = 500;
             } else if(Phaser.Input.Keyboard.JustDown(keyS)) {
+                this.sound.play('synth2', { volume: 0.25 });
                 this.dancer.body.x = 420;
                 this.dancer.body.y = 500;
             } else if(Phaser.Input.Keyboard.JustDown(keyD)) {
+                this.sound.play('synth2', { volume: 0.25 });
                 this.dancer.body.x = 520;
                 this.dancer.body.y = 500;
             } else if(Phaser.Input.Keyboard.JustDown(keyF)) {
+                this.sound.play('synth2', { volume: 0.25 });
                 this.dancer.body.x = 620;
                 this.dancer.body.y = 500;
             }
@@ -140,16 +148,21 @@ class Play extends Phaser.Scene {
         }
         
         // display game over text
-        else if(gameOver == true) {
+        else {
             this.music.stop();
             this.noteGroup.clear(true, true);
             this.playText.setText('GAMEOVER');
+            paused++;
+            if(paused < 10) {
+                this.sound.play('synth0', { volume: 0.25 });
+            }
         }
     }
 
     dancerCollision() {
-        // on collision, destroy note
+        // on collision, destroy note & play sfx
         this.noteGroup.remove(this.noteGroup.getFirstAlive(true), true, true);
+        this.sound.play('synth1', { volume: 0.25 });
         this.dancer.setVelocity(0);
         this.dancer.body.y = 500;
 
@@ -158,7 +171,7 @@ class Play extends Phaser.Scene {
         if(score > highscore) {
             highscore = score;
         }
-        this.scoreText.setText(score);
-        this.highScoreText.setText(highscore);
+        this.scoreText.setText('SCORE:\n' + score);
+        this.highScoreText.setText('HIGHSCORE:\n' + highscore);
     }
 }

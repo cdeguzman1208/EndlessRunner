@@ -9,7 +9,7 @@ class Credits extends Phaser.Scene {
         this.creditsMusic.play();
 
         let creditsConfig = {
-            fontFamily: 'Comic Sans MS',
+            fontFamily: 'Verdana',
             fontSize: '30px',
             color: 'white',
             align: 'center',
@@ -21,21 +21,24 @@ class Credits extends Phaser.Scene {
         }
         this.creditsText1 = this.add.text(w/2, h, 'CREDITS', creditsConfig).setOrigin(0.5);
         creditsConfig.fontSize = '20px';
-        this.creditsText2 = this.add.text(w/2, h + 250, 'Design & Development:\nCromwell De Guzman\n\nArt:\nCromwell De Guzmann\n\nMusic:\nThe Podcast Intro - Music_Unlimited\nElectro Summer Positive Party - Alex Kizenkov\nBlast - AlexiAction\nDisco Groove - QubeSounds\nAction Techno Beat - ComaStudio\nElectro Pop - AlexiAction\nStreet Food - FASSounds\n\nSFX:\nTBA', creditsConfig).setOrigin(0.5);
+        this.creditsText2 = this.add.text(w/2, h + 250, 'Design & Development:\nCromwell De Guzman\n\nArt:\nCromwell De Guzmann\n\nMusic:\nThe Podcast Intro - Music_Unlimited\nElectro Summer Positive Party - Alex Kizenkov\nBlast - AlexiAction\nDisco Groove - QubeSounds\nAction Techno Beat - ComaStudio\nElectro Pop - AlexiAction\nStreet Food - FASSounds\n\nSFX:\nJsfxr - Chris McCormick', creditsConfig).setOrigin(0.5);
 
         // set up scene switcher
         this.input.keyboard.on('keydown', (event) => {
             switch(event.key) {
                 case 'Escape':
                     this.creditsMusic.stop();
+                    this.sound.play('laserShoot', { volume: 0.25 });
                     this.scene.start('menuScene');
                     break;
                 case ' ':
                     this.creditsMusic.stop();
+                    this.sound.play('laserShoot', { volume: 0.25 });
                     this.scene.start('playScene');
                     break;
                 case 'Backspace':
                     this.creditsMusic.stop();
+                    this.sound.play('laserShoot', { volume: 0.25 });
                     this.scene.start('creditsScene');
                     break;
                 default:

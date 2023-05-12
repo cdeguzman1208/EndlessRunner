@@ -14,13 +14,13 @@ Structure & Design:
 > Simulate scrolling with a tileSprite (or equivalent means) (5)
 - Implement proper collision detection (via Arcade Physics or a custom routine) (5)
 - Have looping background music (5)
-> Use a minimum of three sound effects for key mechanics, UI, and/or significant events appropriate to your game design (5)
+- Use a minimum of three sound effects for key mechanics, UI, and/or significant events appropriate to your game design (5)
 - Use randomness to generate escalating challenge, e.g. terrain, pickups, etc. (5)
 - Include some metric of accomplishment that a player can improve over time, e.g., score, survival time, etc. (5)
 - Be theoretically endless (5)
 - Be playable for at least 15 seconds for a new player of low to moderate skill (5)
 - Run without significant crashes or errors (5)
-> Include in-game credits for all roles, assets, music, etc. (5)
+- Include in-game credits for all roles, assets, music, etc. (5)
 
 Tilt:
 > Does your game do something technically interesting? Are you particularly proud of a programming technique you implemented? Did you look beyond the class examples and learn how to do something new? (5)
@@ -64,5 +64,6 @@ let h = game.config.height;
 let dancer = null;
 let score = 0
 let highscore = 0;
+let paused = 0;
 let gameOver = false;
 let keyA, keyS, keyD, keyF;

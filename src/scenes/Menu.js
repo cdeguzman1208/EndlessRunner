@@ -10,7 +10,7 @@ class Menu extends Phaser.Scene {
 
         // display menu text
         let menuConfig = {
-            fontFamily: 'Comic Sans MS',
+            fontFamily: 'Verdana',
             fontSize: '40px',
             color: 'cyan',
             align: 'center',
@@ -30,14 +30,17 @@ class Menu extends Phaser.Scene {
             switch(event.key) {
                 case 'Escape':
                     this.bgm.stop();
+                    this.sound.play('laserShoot', { volume: 0.25 });
                     this.scene.start('menuScene');
                     break;
                 case ' ':
                     this.bgm.stop();
+                    this.sound.play('laserShoot', { volume: 0.25 });
                     this.scene.start('playScene');
                     break;
                 case 'Backspace':
                     this.bgm.stop();
+                    this.sound.play('laserShoot', { volume: 0.25 });
                     this.scene.start('creditsScene');
                     break;
                 default:
