@@ -21,8 +21,7 @@ class Loading extends Phaser.Scene {
 
         // load art
         this.load.image('paddle', 'art/paddle.png');
-        this.load.image('fragment', 'art/fragment.png');
-        this.load.image('cross', 'art/white_cross.png');
+        this.load.image('note', 'art/note.png');
 
         // load music
         this.load.audio('techno', 'music/action-techno-beat-121310.mp3');

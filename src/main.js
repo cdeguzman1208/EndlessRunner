@@ -32,7 +32,7 @@ Tilt:
 
 // main game object
 let config  = {
-    type: Phaser.CANVAS,
+    type: Phaser.WEBGL,
     width: 960,
     height: 640,
     scale: {
