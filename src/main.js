@@ -55,7 +55,8 @@ let config  = {
             }
         }
     },
-    scene: [ Loading, Menu, Play, Credits ]
+    scene: [ Loading, Menu, Play, Credits ],
+    fps: 60
 }
 
 let game = new Phaser.Game(config);
