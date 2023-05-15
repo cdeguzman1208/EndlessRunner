@@ -11,6 +11,8 @@ class Play extends Phaser.Scene {
         gameOver = false;
         this.bgSpeed = 5;
 
+        this.physics.world.setFPS(60);
+
         // add scrolling tile sprite
         this.background = this.add.tileSprite(0, 0, 960, 640, 'background').setOrigin(0, 0);
 
