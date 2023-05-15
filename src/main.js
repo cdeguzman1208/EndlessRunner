@@ -56,6 +56,10 @@ let config  = {
         }
     },
     scene: [ Loading, Menu, Play, Credits ],
+    fps: {
+        target: 60,
+        forceSetTimeOut: true
+    }
 }
 
 let game = new Phaser.Game(config);
