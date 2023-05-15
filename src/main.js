@@ -3,7 +3,7 @@ Name: Cromwell De Guzman
 
 Title: Endless Dancer
 
-Completed: ~24 hours
+Completed: >30 hours
 
 Structure & Design:
 - Use multiple Scene classes (dictated by your game's style) (5)
@@ -23,8 +23,15 @@ Structure & Design:
 - Include in-game credits for all roles, assets, music, etc. (5)
 
 Tilt:
- Does your game do something technically interesting? Are you particularly proud of a programming technique you implemented? Did you look beyond the class examples and learn how to do something new? (5)
-> Does your game have a great visual style? Does it use music or art that you're particularly proud of? Are you trying something new or clever with the endless runner form? (5)
+- Does your game do something technically interesting? Are you particularly proud of a programming technique you implemented? Did you look beyond the class examples and learn how to do something new? (5)
+    Yes, I do think think that my game is technically interesting; as the difficulty/speed increases, the background music also speeds up in parallel.
+    I am particularly proud of the particle emmitter that i previously struggled with during the rocket patrol mods assignment.
+    I also looked beyond the class examples to learn how to load video assests into Phaser.
+
+- Does your game have a great visual style? Does it use music or art that you're particularly proud of? Are you trying something new or clever with the endless runner form? (5)
+    Yes, my game does have great visual style; the vibes and colors that my game gives off are stupendously immaculate.
+    I am particularly proud of the custom music note and dancing bunny sprites that I made from scratch. I am also proud of the video asset that I put in of me and my friends dancing together.
+    Although the scrolling tile sprite still gives off the illusion of forward movement, I guess you could say I am trying something new by changing the verb from 'running' to 'dancing' in the endless runner form.
 */
 
 // tame the javashrek
