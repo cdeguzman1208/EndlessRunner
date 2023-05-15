@@ -1,7 +1,7 @@
 // Dancer prefab
 class Dancer extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, velocity) {
-        super(scene, 120, 132, 'paddle');
+        super(scene, 120, 132, 'bunny');
 
         this.parentScene = scene;               // maintain scene context
 

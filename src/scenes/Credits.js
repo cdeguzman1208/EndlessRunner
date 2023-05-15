@@ -21,7 +21,7 @@ class Credits extends Phaser.Scene {
         }
         this.creditsText1 = this.add.text(w/2, h, 'CREDITS', creditsConfig).setOrigin(0.5);
         creditsConfig.fontSize = '20px';
-        this.creditsText2 = this.add.text(w/2, h + 250, 'Design & Development:\nCromwell De Guzman\n\nArt:\nCromwell De Guzmann\n\nMusic:\nThe Podcast Intro - Music_Unlimited\nElectro Summer Positive Party - Alex Kizenkov\nBlast - AlexiAction\nDisco Groove - QubeSounds\nAction Techno Beat - ComaStudio\nElectro Pop - AlexiAction\nStreet Food - FASSounds\n\nSFX:\nJsfxr - Chris McCormick', creditsConfig).setOrigin(0.5);
+        this.creditsText2 = this.add.text(w/2, h + 300, 'Design & Development:\nCromwell De Guzman\n\nArt:\nCromwell De Guzman\n\nMusic:\nThe Podcast Intro - Music_Unlimited\nElectro Summer Positive Party - Alex Kizenkov\nBlast - AlexiAction\nDisco Groove - QubeSounds\nAction Techno Beat - ComaStudio\nElectro Pop - AlexiAction\nStreet Food - FASSounds\n\nSFX:\nJsfxr - Chris McCormick\n\nVideo:\nPOPreKa', creditsConfig).setOrigin(0.5);
 
         // set up scene switcher
         this.input.keyboard.on('keydown', (event) => {
@@ -48,13 +48,13 @@ class Credits extends Phaser.Scene {
     }
 
     update() {
-        if(this.creditsText2.y > 0 - 250) {
+        if(this.creditsText2.y > 0 - 300) {
             this.creditsText1.y--;
             this.creditsText2.y--;
         }
         else {
             this.creditsText1.y = h;
-            this.creditsText2.y = h + 250;
+            this.creditsText2.y = h + 300;
         }
     }
 }

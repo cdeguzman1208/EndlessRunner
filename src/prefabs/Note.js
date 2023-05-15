@@ -2,7 +2,25 @@
 class Note extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, velocity) {
         // call phaser physics sprite constructor
-        super(scene, Phaser.Math.Between(3, 6) * 100 + 20, 0, 'note');
+        let randomPosition = Math.floor(Phaser.Math.Between(1, 4));
+        let musicNoteX;
+        switch (randomPosition) {
+            case 1:
+                musicNoteX = w/2 - 170;
+                break;
+            case 2:
+                musicNoteX = w/2 - 60;
+                break;
+            case 3:
+                musicNoteX = w/2 + 60;
+                break;
+            case 4:
+                musicNoteX = w/2 + 170;
+                break;
+            default:
+                break;
+        }
+        super(scene, musicNoteX, 0, 'note');
         
         this.parentScene = scene;                       // maintain scene context
         
@@ -11,9 +29,8 @@ class Note extends Phaser.Physics.Arcade.Sprite {
         this.parentScene.physics.add.existing(this);    // add to physics system
         this.setVelocityY(velocity);                    // make it go!
         this.setImmovable();
-        this.tint = Math.random() * 0xFFFFFF;
         this.newNote = true;                            // custom property to control barrier spawning
-        this.setScale(2.5);
+        this.setScale(1);
     }
 
     update() {

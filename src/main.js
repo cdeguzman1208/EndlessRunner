@@ -10,8 +10,8 @@ Structure & Design:
 - Properly transition between Scenes and allow the player to restart w/out having to reload the page (5)
 - Include in-game instructions using text or other means (e.g., tooltips, tutorial, diagram, etc.) (5)
 - Have some form of player input/control appropriate to your game design (5)
-> Include one or more animated characters that use a texture atlas (5)
-> Simulate scrolling with a tileSprite (or equivalent means) (5)
+- Include one or more animated characters that use a texture atlas (5)
+- Simulate scrolling with a tileSprite (or equivalent means) (5)
 - Implement proper collision detection (via Arcade Physics or a custom routine) (5)
 - Have looping background music (5)
 - Use a minimum of three sound effects for key mechanics, UI, and/or significant events appropriate to your game design (5)
@@ -23,7 +23,7 @@ Structure & Design:
 - Include in-game credits for all roles, assets, music, etc. (5)
 
 Tilt:
-> Does your game do something technically interesting? Are you particularly proud of a programming technique you implemented? Did you look beyond the class examples and learn how to do something new? (5)
+ Does your game do something technically interesting? Are you particularly proud of a programming technique you implemented? Did you look beyond the class examples and learn how to do something new? (5)
 > Does your game have a great visual style? Does it use music or art that you're particularly proud of? Are you trying something new or clever with the endless runner form? (5)
 */
 
@@ -54,14 +54,10 @@ let config  = {
 let game = new Phaser.Game(config);
 
 // global variables
-const SCALE = 0.5;
-const dancerWidth = 16;
-const dancerHeight = 128;
 let centerX = game.config.width/2;
 let centerY = game.config.height/2;
 let w = game.config.width;
 let h = game.config.height;
-let dancer = null;
 let score = 0
 let highscore = 0;
 let paused = 0;
