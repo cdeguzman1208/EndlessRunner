@@ -27,6 +27,7 @@ Tilt:
     Yes, I do think think that my game is technically interesting; as the difficulty/speed increases, the background music also speeds up in parallel.
     I am particularly proud of the particle emmitter that i previously struggled with during the rocket patrol mods assignment.
     I also looked beyond the class examples to learn how to load video assests into Phaser.
+    And I looked up how to cap the frame rate because my roommate who playtested my game was experiencing lag since his machine ran on a different refresh rate than I did.
 
 - Does your game have a great visual style? Does it use music or art that you're particularly proud of? Are you trying something new or clever with the endless runner form? (5)
     Yes, my game does have great visual style; the vibes and colors that my game gives off are stupendously immaculate.
